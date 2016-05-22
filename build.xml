@@ -1,0 +1,31 @@
+<project name="project" basedir ="." default ="all">
+  <property name="src.dir" location ="src" />
+  <property name="build.dir" location ="build" />
+  <property name="classes.dir" location ="${build.dir}/classes" />
+  <property name="jars.dir" location ="${build.dir}/jars" />
+  <property name="main-class" value="Main" />
+
+<target name="clean">
+  <delete dir="${build.dir}" failonerror ="false" />
+</target>
+
+<target name="compile">
+  <mkdir dir="${classes.dir}" />
+  <javac srcdir ="${src.dir}" destdir ="${classes.dir}" />
+</target>
+
+<target name="jar" depends ="compile">
+  <mkdir dir="${jars.dir}" />
+  <jar destfile ="${jars.dir}/${ant.project.name}.jar"
+    basedir ="${classes.dir}">
+    <manifest>
+      <attribute name="Main-Class" value ="${main-class}" />
+    </manifest>
+  </jar>
+</target>
+
+<target name="run" depends ="jar">
+  <java jar="${jars.dir}/${ant.project.name}.jar" fork="true" />
+</target>
+
+</project>
