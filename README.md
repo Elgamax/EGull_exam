@@ -1,1 +1,0 @@
-# EGull_exam
