@@ -36,9 +36,6 @@ public class Search_page implements MyDisplay
     public void show()
     {
         window.setTitle("Search page");
-        window.setSize(600, 400);
-        window.setLocationRelativeTo(null);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
         window.repaint();
     }
