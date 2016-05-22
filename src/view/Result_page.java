@@ -30,22 +30,31 @@ public class Result_page implements MyDisplay
         back_button.setName("Back_button");
 
         scrollPane = new JScrollPane(result);
+
+    }
+
+    @Override
+    public void show()
+    {
+        this.window.getContentPane().removeAll();  // ready to get new things
         hud = new JPanel();
         hud.setLayout(new BoxLayout(hud, BoxLayout.PAGE_AXIS));
         hud.add(header);
         hud.add(scrollPane);
         hud.add(back_button);
         this.window.add(hud);
-    }
 
-    @Override
-    public void show()
-    {
         window.setTitle("Result page");
         header.setText("User's github information : " + user_name);
         result.setText(result_text);
         window.setVisible(true);
+        window.revalidate();
         window.repaint();
     }
 
+
+    public JButton getBack_button()
+    {
+        return back_button;
+    }
 }

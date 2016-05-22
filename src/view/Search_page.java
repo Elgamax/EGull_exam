@@ -20,7 +20,12 @@ public class Search_page implements MyDisplay
         search = new JButton("Search");
         search.setPreferredSize(new Dimension(40,40));
         search.setName("Search_button");
+    }
 
+    @Override
+    public void show()
+    {
+        this.window.getContentPane().removeAll(); // ready to get news things
         hud = new JPanel();
         hud.setLayout(new BoxLayout(hud, BoxLayout.PAGE_AXIS));
         JLabel text_info = new JLabel("user name :");
@@ -30,18 +35,21 @@ public class Search_page implements MyDisplay
         hud.add(search);
         hud.add(Box.createVerticalGlue()); // just to center the important display
         this.window.add(hud);
-    }
 
-    @Override
-    public void show()
-    {
         window.setTitle("Search page");
         window.setVisible(true);
+        window.revalidate();
         window.repaint();
     }
 
     public void update()
     {
 
+    }
+
+
+    public JButton getSearch_button()
+    {
+        return search;
     }
 }
